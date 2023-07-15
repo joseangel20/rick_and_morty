@@ -1,0 +1,6 @@
+.containerCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  width: 992px;
+  margin: 80px auto 0 auto;
+}
