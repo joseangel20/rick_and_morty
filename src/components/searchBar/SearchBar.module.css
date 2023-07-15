@@ -1,0 +1,24 @@
+.containerSearch {
+  display: flex;
+  justify-content: end;
+  /* align-content: end; */
+  background-color: #a14b0b;
+  padding: 8px;
+  border-radius: 0 0 0 10px;
+  /* position: absolute; */
+  width: 500px;
+  margin-left: auto;
+  /* right: 0; */
+  box-sizing: border-box;
+}
+
+.containerSearch input, .containerSearch button{
+    padding:10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.containerSearch input {
+  margin-right: 90px;
+  width: 250px;
+}
