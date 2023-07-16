@@ -16,7 +16,13 @@ export default function Cards(props) {
             origin={char.origin.name}
             image={char.image}
             onClose={() => window.alert("Emulamos que se cierra la card")}
-            onAbout={()=> alert("About me")}
+            onAbout={() =>
+              alert(
+                `${char.name}\n${
+                  char.origin.name !== "unknown" ? char.origin.name : ""
+                }`
+              )
+            }
           />
         );
       })}

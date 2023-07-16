@@ -10,7 +10,7 @@ export default function Card(props) {
       <p className={styles.show}>{props.species}</p>
       <p className={styles.show}>{props.origin}</p>
       <img src={props.image} alt="d" />
-      <div className={  styles.about_card} onClick={props.onAbout}>
+      <div className={styles.about_card} onClick={props.onAbout}>
         <p>About me</p>
       </div>
     </div>
