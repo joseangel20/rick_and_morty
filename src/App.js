@@ -1,9 +1,19 @@
 /* eslint-disable array-callback-return */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import Cards from "./components/cards/Cards.jsx";
 import Nav from "./components/Nav/Nav";
 import "./App.css";
+
+const axio = (setCharacters, id) => {
+  axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
+    if (data.name) {
+      setCharacters((oldChars) => [...oldChars, data]);
+    } else {
+      window.alert("¡No hay personajes con este ID!");
+    }
+  });
+};
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -14,16 +24,8 @@ function App() {
       if (character.id === Number(id)) isMount = true;
     });
 
-    if(isMount) return;
-    axios(`https://rickandmortyapi.com/api/character/${id}`).then(
-      ({ data }) => {
-        if (data.name) {
-          setCharacters((oldChars) => [...oldChars, data]);
-        } else {
-          window.alert("¡No hay personajes con este ID!");
-        }
-      }
-    );
+    if (isMount) return;
+    axio(setCharacters, id);
   }
 
   const onClose = (id) => {
@@ -33,6 +35,10 @@ function App() {
 
     setCharacters(AuxCharacters);
   };
+
+  useEffect(() => {
+    axio(setCharacters, 1);
+  }, []);
 
   return (
     <div className="App">

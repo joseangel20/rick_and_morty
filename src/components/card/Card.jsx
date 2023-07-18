@@ -13,7 +13,7 @@ export default function Card({
 }) {
   return (
     <div className={styles.containerCard}>
-      <button onClick={()=>onClose(id)}>X</button>
+      <button onClick={() => onClose(id)}>X</button>
       <p className={styles.name}>{name.split(" ")[0]}</p>
       <p className={[styles.gender, styles.show].join(" ")}>{gender}</p>
       <p className={styles.show}>{status}</p>

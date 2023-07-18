@@ -4,6 +4,7 @@ import styles from "./SearchBar.module.css";
 export default function SearchBar(props) {
   const [id, setId] = useState("");
   const span = useRef();
+  const input = useRef();
 
   const handleChange = (event) => {
     span.current.innerText = "";
@@ -15,6 +16,10 @@ export default function SearchBar(props) {
     setId(event.target.value);
   };
 
+  const clearInput = () => {
+    input.current.value = "";
+  };
+
   return (
     <div className={styles.containerSearch}>
       <span ref={span}></span>
@@ -22,9 +27,16 @@ export default function SearchBar(props) {
         type="search"
         placeholder="id for add..."
         onChange={handleChange}
+        ref={input}
       />
-      <button onClick={() => props.onSearch(id)}>Agregar</button>
-      <div></div>
+      <button
+        onClick={() => {
+          props.onSearch(id);
+          clearInput();
+        }}
+      >
+        Agregar
+      </button>
     </div>
   );
 }

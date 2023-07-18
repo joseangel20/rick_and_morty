@@ -1,15 +1,13 @@
 .containerSearch {
   display: flex;
   justify-content: center;
-  /* align-content: end; */
   background-color: #a14b0b;
   padding: 10px;
   border-radius: 0 0 10px 10px;
-  /* position: absolute; */
   width: 500px;
-  margin:0 auto;
-  /* right: 0; */
+  margin: 0 auto;
   box-sizing: border-box;
+
 }
 
 .containerSearch input, .containerSearch button{
