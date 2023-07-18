@@ -8,9 +8,10 @@ export default function SearchBar(props) {
   const handleChange = (event) => {
     span.current.innerText = "";
     if (isNaN(Number(event.target.value))) {
-      span.current.innerText = "Debes digitar un valor númerico";
+      span.current.innerText = "Debes digitar un valor númerico desde 1 al 826";
       return;
     }
+
     setId(event.target.value);
   };
 
@@ -23,9 +24,7 @@ export default function SearchBar(props) {
         onChange={handleChange}
       />
       <button onClick={() => props.onSearch(id)}>Agregar</button>
-      <div>
-
-      </div>
+      <div></div>
     </div>
   );
 }
