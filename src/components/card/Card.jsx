@@ -2,6 +2,7 @@ import styles from "./card.module.css";
 
 export default function Card({
   onClose,
+  id,
   name,
   status,
   species,
@@ -12,7 +13,7 @@ export default function Card({
 }) {
   return (
     <div className={styles.containerCard}>
-      <button onClick={onClose}>X</button>
+      <button onClick={()=>onClose(id)}>X</button>
       <p className={styles.name}>{name.split(" ")[0]}</p>
       <p className={[styles.gender, styles.show].join(" ")}>{gender}</p>
       <p className={styles.show}>{status}</p>

@@ -8,9 +8,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #A14B0B;
   background-image: url("./assets/img/background3.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  
+  background-repeat: repeat-y;
+  background-attachment: fixed;
+  background-position: center;  
 }
 
 code {
