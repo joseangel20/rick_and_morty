@@ -1,9 +1,6 @@
 .containerCard {
   font-family: "Courier New", Courier, monospace;
   font-size: 1em;
-  /* display: grid; */
-  /* grid-template-columns: 1fr; */
-  /* grid-template-rows: auto; */
   position: relative;
   justify-self: center;
 }
@@ -13,19 +10,15 @@
   border-radius: 6px;
 }
 
-.containerCard .show {
-  visibility: hidden;
-}
-
-.containerCard p,
-button {
+.containerCard h4,
+.containerCard button {
   position: absolute;
 }
 
 .containerCard button {
+  font-size: 1em;
   border: none;
   border-radius: 2px 6px;
-  /* top: 84px; */
   right: 0px;
   background-color: #ff9445;
   color: #a14b0b;
@@ -40,19 +33,17 @@ button {
 
 .containerCard .name {
   left: 0;
-  bottom: -11px;
+  bottom: -16px;
   background-color: #ff9445;
-  /* color: #A14B0B; */
-  padding: 0 5px 0 10px;
-  border-radius: 0 0 0 6px;
+  padding: 2px 5px 0 10px;
+  border-radius: 0 6px 0 6px;
 }
 
-.containerCard:hover .gender {
+/* .containerCard:hover .gender {
   right: 0;
   visibility: visible;
   bottom: -11px;
   background-color: #28d9ed;
-  /* color: #A14B0B; */
   padding: 0 10px 0 10%;
   border-radius: 0 0 6px 0;
 }
@@ -62,35 +53,4 @@ button {
   visibility: visible;
   bottom: -11px;
   background-color: #28d9ed;
-  /* color: #A14B0B; */
-  /* padding: 0 10px 0 10%; */
-  /* border-radius: 0 0 6px 0; */
-}
-
-/* ///////////////////////////////////// */
-
-.about_card {
-  display: none;
-  height: 20px;
-  transition: height 1s;
-}
-
-.containerCard:hover .about_card {
-  width: 100%;
-  height: 78.5%;
-  background-color: rgba(0, 0, 0, 0.705);
-  position: absolute;
-  top: 17px;
-  text-align: center;
-  font-size: x-large;
-  display: block;
-  cursor: pointer;
-  user-select: none;
-}
-
-.about_card p {
-  width: 80%;
-  position: relative;
-  margin: 40% auto;
-  color: white;
-}
+} */

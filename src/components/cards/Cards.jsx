@@ -14,6 +14,8 @@ export default function Cards(props) {
         origin={char.origin.name}
         image={char.image}
         onClose={props.onClose}
+        characters={props.characters}
+        setCharacters={props.setCharacters}
         onAbout={() =>
           alert(
             `${char.name}\n${
