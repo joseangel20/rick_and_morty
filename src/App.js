@@ -1,24 +1,17 @@
 /* eslint-disable array-callback-return */
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Routes, Route } from "react-router-dom";
 import Cards from "./components/cards/Cards.jsx";
-import Nav from "./components/Nav/Nav";
+import Nav from "./components/nav/nav.jsx";
+import About from "./components/about/About";
+import Detail from "./components/detail/Detail";
 import "./App.css";
-
-const axio = (setCharacters, id) => {
-  axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
-    if (data.name) {
-      setCharacters((oldChars) => [...oldChars, data]);
-    } else {
-      window.alert("¡No hay personajes con este ID!");
-    }
-  });
-};
 
 function App() {
   const [characters, setCharacters] = useState([]);
 
-  function onSearch(id) {
+  const onSearch = (id) => {
     let isMount = false;
     characters.forEach((character) => {
       if (character.id === Number(id)) isMount = true;
@@ -26,7 +19,7 @@ function App() {
 
     if (isMount) return;
     axio(setCharacters, id);
-  }
+  };
 
   const onClose = (id) => {
     const AuxCharacters = characters.filter((character) => {
@@ -36,6 +29,18 @@ function App() {
     setCharacters(AuxCharacters);
   };
 
+  const axio = (setCharacters, id) => {
+    axios(`https://rickandmortyapi.com/api/character/${id}`).then(
+      ({ data }) => {
+        if (data.name) {
+          setCharacters((oldChars) => [...oldChars, data]);
+        } else {
+          window.alert("¡No hay personajes con este ID!");
+        }
+      }
+    );
+  };
+
   useEffect(() => {
     axio(setCharacters, 1);
   }, []);
@@ -43,7 +48,14 @@ function App() {
   return (
     <div className="App">
       <Nav onSearch={onSearch} />
-      <Cards characters={characters} onClose={onClose} />
+      <Routes>
+        <Route
+          path="/home"
+          element={<Cards characters={characters} onClose={onClose} />}
+        />
+        <Route path="/about" element={<About />} />
+        <Route path="/detail/:id" element={<Detail />} />
+      </Routes>
     </div>
   );
 }

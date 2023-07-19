@@ -1,5 +1,6 @@
 import SearchBar from "../searchBar/SearchBar";
-import styles from "./Nav.module.css";
+
+import styles from "./nav.module.css";
 
 const Nav = (props) => {
   return (
