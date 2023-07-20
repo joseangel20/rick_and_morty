@@ -51,7 +51,7 @@ function App() {
   const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
-    axio(setCharacters, 1);
+    // axio(setCharacters, 1);
   }, []);
 
   return (
@@ -74,7 +74,7 @@ function App() {
           }
         />
         <Route path="/about" element={<About />} />
-        <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/detail/:id" element={<Detail/>} />
       </Routes>
     </div>
   );

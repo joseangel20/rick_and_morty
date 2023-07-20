@@ -8,8 +8,8 @@ const About = () => {
     "LESS",
     "...",
   ];
-  const listHardSkills = hardSkills.map((hardSkill) => {
-    return <li>{hardSkill}</li>;
+  const listHardSkills = hardSkills.map((hardSkill, index) => {
+    return <li key={index}>{hardSkill}</li>;
   });
 
   return (
