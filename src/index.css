@@ -9,8 +9,7 @@ body {
   background-color: #A14B0B;
   background-image: url("./assets/img/background3.jpg");
   background-repeat: repeat-y;
-  background-attachment: fixed;
-  background-position: center;  
+  background-position: top;
 }
 
 code {

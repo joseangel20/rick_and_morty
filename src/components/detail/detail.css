@@ -3,7 +3,7 @@
   justify-content: space-evenly;
   text-align: center;
   color: #ff9445;
-  margin-top: 1px;
+  margin-top: 34px;
 }
 
 .container_detail h1 {
@@ -19,7 +19,7 @@
 }
 
 .container_detail .detail {
-  /* padding: 50px; */
+  padding: 50px;
   background: radial-gradient(#8f6609d1, #000000b8);
 }
 

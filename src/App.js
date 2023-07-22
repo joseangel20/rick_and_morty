@@ -74,7 +74,7 @@ function App() {
           }
         />
         <Route path="/about" element={<About />} />
-        <Route path="/detail/:id" element={<Detail/>} />
+        <Route path="/detail/:id" element={<Detail />} />
       </Routes>
     </div>
   );

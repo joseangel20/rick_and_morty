@@ -3,10 +3,11 @@
   font-size: 1em;
   position: relative;
   justify-self: center;
+  
 }
 
 .containerCard img {
-  width: 200px;
+  width: 240px;
   border-radius: 6px;
 }
 
@@ -32,8 +33,14 @@
 }
 
 .containerCard .name {
-  left: 0;
-  bottom: -16px;
+  /* left: 0;
+  bottom: -17px;
+  background-color: #ff9445;
+  padding: 2px 5px 0 10px;
+  border-radius: 0 6px 0 6px; */
+
+  left: 6px;
+  bottom: -25px;
   background-color: #ff9445;
   padding: 2px 5px 0 10px;
   border-radius: 0 6px 0 6px;

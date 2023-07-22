@@ -42,10 +42,11 @@
 
 .containerSearch .boton_sobre_input {
   position: absolute;
-  margin-left: 293px;
+  margin-left: 295px;
   background-color: darkturquoise;
 }
 
 .containerSearch .disable{
-  pointer-events: none;
+  pointer-events:none;
+  cursor: not-allowed;
 }
