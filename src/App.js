@@ -1,7 +1,6 @@
 /* eslint-disable array-callback-return */
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
-// import {Cards,Nav,About,Detail,Error,Form} from './components/view'
 import * as comp from "./vista/view";
 import { onSearch, onSearchRandom, onClose } from "./utilities/app.utility";
 import "./App.css";
@@ -9,8 +8,6 @@ import "./App.css";
 function App() {
   const [characters, setCharacters] = useState([]);
   const { pathname } = useLocation();
-
-  // useEffect(() => {}, [pathname]);
 
   const cards = (
     <comp.Cards
