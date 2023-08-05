@@ -30,14 +30,20 @@
   margin-right: 5px;
   width: 250px;
   margin-left: 70px;
+  outline: none;
 }
 
 .containerSearch button {
   cursor: pointer;
 }
 
+.containerSearch button:hover {
+  opacity: 0.8;
+}
+
 .containerSearch button:active {
-  background-color: rgb(207, 204, 204); 
+  /* background-color: rgb(207, 204, 204); */
+  opacity: 0.8;
 }
 
 .containerSearch .boton_sobre_input {

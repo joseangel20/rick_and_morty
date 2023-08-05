@@ -3,12 +3,13 @@
   font-size: 1em;
   position: relative;
   justify-self: center;
-  
 }
 
 .containerCard img {
   width: 240px;
   border-radius: 6px;
+  transition: border 0.5s;
+  transition: width 0.5s;
 }
 
 .containerCard h4,

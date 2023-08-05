@@ -6,13 +6,15 @@ export default function Card({
   id,
   name,
   image,
-  onAbout,
   characters,
   setCharacters,
 }) {
+  const nameClick = <h4 className={styles.name}>{name.split(" ")[0]}</h4>;
+
   return (
     <div className={styles.containerCard}>
       <button onClick={() => onClose(id, characters, setCharacters)}>X</button>
+
       <NavLink
         to={`/detail/${id}`}
         style={({ isActive }) => {
@@ -21,10 +23,9 @@ export default function Card({
           };
         }}
       >
-        <h4 className={styles.name}>{name.split(" ")[0]}</h4>
+        {nameClick}
       </NavLink>
-
-      <img src={image} alt="d" />
+      <img src={image} alt={name} />
     </div>
   );
 }

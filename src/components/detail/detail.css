@@ -1,28 +1,38 @@
 .container_detail {
   display: flex;
-  justify-content: space-evenly;
+  align-items: center;
   text-align: center;
   color: #ff9445;
   margin-top: 34px;
 }
 
-.container_detail h1 {
-  margin: 0 0 50px 0;
-  font-size: 4em;
+.container_detail .detail h1 {
+  margin: 46px 0 30px 0;
 }
 
 .container_detail div {
   width: 100%;
-  height: 450px;
-  padding-top: 100px;
+  /* height: 450px; */
+  /* padding-top: 100px; */
   border-radius: 5px;
 }
 
+.container_detail .contentImage{
+  display: flex;
+  justify-content: center;
+}
+
 .container_detail .detail {
-  padding: 50px;
+  padding: 20px;
   background: radial-gradient(#8f6609d1, #000000b8);
+  height: 450px;
 }
 
 .container_detail img {
   border-radius: 50%;
+}
+
+.container_detail .loading{
+  width: 100%;
+  margin: 25vh auto;
 }

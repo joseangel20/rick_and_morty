@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
 import styles from "./SearchBar.module.css";
 
@@ -19,27 +19,30 @@ export default function SearchBar(props) {
   const [id, setId] = useState("");
   const input = useRef();
   const { pathname } = useLocation();
+  const disable = pathname === "/" ? "" : styles.disable;
 
+  useEffect(() => {
+    if (pathname === "/") {
+      input.current.focus();
+    }
+  }, [pathname]);
   return (
     <div className={styles.containerSearch}>
-      <NavLink to="/home">
+      <NavLink to="/">
         <button className={styles.home}>Home</button>
       </NavLink>
       <Link to="/about">
         <button className={styles.about}>About</button>
       </Link>
       <input
-        className={pathname === "/home" ? "" : styles.disable}
+        className={disable}
         type="search"
         placeholder="id for add..."
         onChange={(event) => handleChange(setId, event)}
         ref={input}
       />
       <button
-        className={[
-          styles.boton_sobre_input,
-          pathname === "/home" ? "" : styles.disable,
-        ].join(" ")}
+        className={[styles.boton_sobre_input, disable].join(" ")}
         onClick={() => {
           props.onSearch(id, props.characters, props.setCharacters);
           clearInput(input);
@@ -49,7 +52,7 @@ export default function SearchBar(props) {
       </button>
 
       <button
-        className={pathname === "/home" ? "" : styles.disable}
+        className={disable}
         onClick={() => {
           props.onSearchRandom(props.characters, props.setCharacters);
           clearInput(input);
