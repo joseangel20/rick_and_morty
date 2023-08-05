@@ -1,81 +1,44 @@
 /* eslint-disable array-callback-return */
-import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
-import Cards from "./components/cards/Cards.jsx";
-import axios from "axios";
-import Nav from "./components/nav/nav.jsx";
-import About from "./components/about/About";
-import Detail from "./components/detail/Detail";
-import Error from "./components/error/Error";
+import { useState, useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+// import {Cards,Nav,About,Detail,Error,Form} from './components/view'
+import * as comp from "./vista/view";
+import { onSearch, onSearchRandom, onClose } from "./utilities/app.utility";
 import "./App.css";
-
-const IsMountComponent = (idInput, characters) => {
-  let isMount = false;
-  characters.forEach((character) => {
-    if (character.id === Number(idInput)) isMount = true;
-  });
-
-  return isMount;
-};
-
-const onSearch = (idInput, characters, setCharacters) => {
-  if (IsMountComponent(idInput, characters)) return;
-  axio(setCharacters, idInput);
-};
-
-const onSearchRandom = (characters, setCharacters) => {
-  const id = Math.ceil(Math.random() * 826);
-
-  if (IsMountComponent(id, characters)) return;
-  axio(setCharacters, id);
-};
-
-const axio = (setCharacters, id) => {
-  axios(`https://rickandmortyapi.com/api/character/${id}`)
-    .then(({ data }) => {
-      if (data.name) {
-        setCharacters((oldChars) => [...oldChars, data]);
-      } else {
-        window.alert("¡No hay personajes con este ID!");
-      }
-    })
-    .catch(({ response }) => {});
-};
-
-const onClose = (id, characters, setCharacters) => {
-  const AuxCharacters = characters.filter((character) => {
-    if (character.id !== Number(id)) return character;
-  });
-
-  setCharacters(AuxCharacters);
-};
 
 function App() {
   const [characters, setCharacters] = useState([]);
-  // useEffect(() => {
-  //   // axio(setCharacters, 1);
-  // }, []);
+  const { pathname } = useLocation();
+
+  // useEffect(() => {}, [pathname]);
 
   const cards = (
-    <Cards
+    <comp.Cards
       onClose={onClose}
       characters={characters}
       setCharacters={setCharacters}
     />
   );
+
+  const nav = (
+    <comp.Nav
+      onSearch={onSearch}
+      characters={characters}
+      setCharacters={setCharacters}
+      onSearchRandom={onSearchRandom}
+    />
+  );
+
   return (
     <div className="App">
-      <Nav
-        onSearch={onSearch}
-        characters={characters}
-        setCharacters={setCharacters}
-        onSearchRandom={onSearchRandom}
-      />
+      {pathname !== "/" && nav}
+
       <Routes>
-        <Route path="/" element={cards} />
-        <Route path="/about" element={<About />} />
-        <Route path="/detail/:id" element={<Detail />} />
-        <Route path="*" element={<Error />} />
+        <Route path="/" element={<comp.Form />} />
+        <Route path="/home" element={cards} />
+        <Route path="/about" element={<comp.About />} />
+        <Route path="/detail/:id" element={<comp.Detail />} />
+        <Route path="*" element={<comp.Error />} />
       </Routes>
     </div>
   );

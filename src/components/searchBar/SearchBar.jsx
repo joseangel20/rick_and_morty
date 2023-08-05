@@ -19,16 +19,16 @@ export default function SearchBar(props) {
   const [id, setId] = useState("");
   const input = useRef();
   const { pathname } = useLocation();
-  const disable = pathname === "/" ? "" : styles.disable;
+  const disable = pathname === "/home" ? "" : styles.disable;
 
   useEffect(() => {
-    if (pathname === "/") {
+    if (pathname === "/home") {
       input.current.focus();
     }
   }, [pathname]);
   return (
     <div className={styles.containerSearch}>
-      <NavLink to="/">
+      <NavLink to="/home">
         <button className={styles.home}>Home</button>
       </NavLink>
       <Link to="/about">
