@@ -1,9 +1,8 @@
-* {
-  margin: 0px;
+.containerForm{
+  margin: 0;
 }
-
 .containerForm {
-  width: 670px;
+  width: 680px;
   margin: 100px auto 0 auto;
   background-color: #12d996bf;
   display: flex;
@@ -12,7 +11,7 @@
   align-items: center;
   gap: 75px;
   box-sizing: border-box;
-  padding: 5px;
+  padding: 16px;
 }
 
 .container_img {
@@ -26,13 +25,13 @@
 
 .form {
   font-size: larger;
-  width: 245px;
+  width: 260px;
 }
 .contenido {
   /* background-color: brown; */
   /* width: 100%; */
 
-  margin: 21px 0;
+ 
   /* padding: 10px; */
   display: flex;
   flex-direction: column;
@@ -43,9 +42,9 @@
 }
 
 .danger {
+  margin:2px 0 30px 0;
   font-size: smaller;
   height: 5px;
-  padding-top: 2px;
   color: #df0000;
 }
 
@@ -69,6 +68,7 @@
   background-color: rgb(74 253 149) !important;
   border-radius: 8px;
 }
-.contenido input:-webkit-autofill {
-    -webkit-text-fill-color: #000;
+
+input:-webkit-autofill{
+    box-shadow: 0 0 0px 10000px rgb(74 253 149) inset;
 }

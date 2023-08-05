@@ -1,9 +1,9 @@
 import { useState } from "react";
-import validate, { handleChange } from "../../utilities/validation";
+import { handleChange } from "../../utilities/validation";
 import styles from "./form.module.css";
-import login from "../../assets/img/login.jpg";
+import loginImg from "../../assets/img/login.jpg";
 
-export default function Form() {
+export default function Form({ login }) {
   const [userData, setUserData] = useState({
     email: "",
     password: "",
@@ -12,12 +12,17 @@ export default function Form() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!login(userData))
+      setUserData({
+        ...userData,
+        password: "",
+      });
   };
 
   return (
     <div className={styles.containerForm}>
       <div className={styles.container_img}>
-        <img src={login} alt="Rick and morty" />
+        <img src={loginImg} alt="Rick and morty" />
       </div>
 
       <form className={styles.form} onSubmit={handleSubmit}>

@@ -41,3 +41,15 @@ export const onClose = (id, characters, setCharacters) => {
 
   setCharacters(AuxCharacters);
 };
+
+export const login = (userData,setAccess,navigate) => {
+  const EMAIL = "jose20@gmail.es";
+  const PASSWORD = "pass12";
+  if (userData.email === EMAIL && userData.password === PASSWORD) {
+    setAccess(true);
+    navigate("/home");
+    return;
+  }
+
+  setAccess(false);
+};

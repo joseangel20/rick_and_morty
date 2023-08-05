@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 const validate = ({ email, password }) => {
   const errors = {};
   const LIMIT_CHARACTERES = 35;

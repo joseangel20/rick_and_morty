@@ -4,18 +4,18 @@
   background-color: #a14b0b;
   padding: 10px;
   border-radius: 0 0 10px 10px;
-  width: 600px;
+  width: 640px;
   margin: 0 auto;
   box-sizing: border-box;
   gap: 5px;
 }
 
-.containerSearch .home{
-  background-color: #FF9445;
+.containerSearch .home {
+  background-color: #ff9445;
 }
 
-.containerSearch .about{
-  background-color: #28D9ED;
+.containerSearch .about {
+  background-color: #28d9ed;
 }
 
 .containerSearch input,
@@ -27,7 +27,7 @@
 }
 
 .containerSearch input {
-  margin-right: 5px;
+  margin-right: 3px;
   width: 250px;
   margin-left: 70px;
   outline: none;
@@ -48,11 +48,11 @@
 
 .containerSearch .boton_sobre_input {
   position: absolute;
-  margin-left: 295px;
+  margin-left: 226px;
   background-color: darkturquoise;
 }
 
-.containerSearch .disable{
-  pointer-events:none;
+.containerSearch .disable {
+  pointer-events: none;
   cursor: not-allowed;
 }

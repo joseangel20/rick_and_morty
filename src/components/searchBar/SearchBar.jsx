@@ -26,6 +26,7 @@ export default function SearchBar(props) {
       input.current.focus();
     }
   }, [pathname]);
+
   return (
     <div className={styles.containerSearch}>
       <NavLink to="/home">
@@ -60,6 +61,7 @@ export default function SearchBar(props) {
       >
         Random
       </button>
+      <button onClick={props.onLogOut}>Log out</button>
     </div>
   );
 }
