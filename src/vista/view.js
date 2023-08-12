@@ -4,6 +4,7 @@ import About from "../components/about/About.jsx";
 import Detail from "../components/detail/Detail.jsx";
 import Error from "../components/error/Error.jsx";
 import Form from "../components/form/Form.jsx";
+import Favorites from "../components/favorites/Favorites.jsx"
 
 export {
   Cards,
@@ -12,4 +13,5 @@ export {
   Detail,
   Error,
   Form,
+  Favorites
 };

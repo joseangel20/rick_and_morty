@@ -11,8 +11,8 @@ export default function Card({
   image,
   characters,
   setCharacters,
-  fav,
 }) {
+  const nameClick = <h4 className={styles.name}>{name.split(" ")[0]}</h4>;
   const [isFav, setIsFav] = useState(false);
   const dispatch = useDispatch();
   const myFavorites = useSelector((state) => state.myFavorites);
@@ -34,14 +34,13 @@ export default function Card({
     //       setIsFav(true);
     //     }
     //   });
+
     for (let fav of myFavorites) {
       if (fav.id === id) {
         setIsFav(true);
       }
     }
-  }, [id, myFavorites]);
-
-  const nameClick = <h4 className={styles.name}>{name.split(" ")[0]}</h4>;
+  }, [myFavorites]);
 
   return (
     <div className={styles.containerCard}>
@@ -50,14 +49,7 @@ export default function Card({
       </button>
       <button
         className={styles.cerrar}
-        onClick={() => {
-          if (fav) {
-            onClose(id, dispatch, removeFav, setIsFav);
-          } else {
-            onClose(id, characters, setCharacters);
-            dispatch(removeFav(id));
-          }
-        }}
+        onClick={() => onClose(id, characters, setCharacters)}
       >
         X
       </button>

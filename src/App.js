@@ -17,8 +17,10 @@ function App() {
   };
 
   const login = (userData) => {
-    const EMAIL = "jose20@gmail.es";
-    const PASSWORD = "pass12";
+    // const EMAIL = "jose20@gmail.es";
+    // const PASSWORD = "pass12";
+    const EMAIL = "";
+    const PASSWORD = "";
 
     if (userData.email === EMAIL && userData.password === PASSWORD) {
       setAccess(true);
@@ -62,6 +64,7 @@ function App() {
         <Route path="/" element={<component.Form login={login} />} />
         <Route path="/home" element={cards} />
         <Route path="/about" element={<component.About />} />
+        <Route path="/favorites" element={<component.Favorites />} />
         <Route path="/detail/:id" element={<component.Detail />} />
         <Route path="*" element={<component.Error />} />
       </Routes>

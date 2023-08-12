@@ -33,16 +33,18 @@ const axio = (setCharacters, id) => {
     .catch(({ response }) => {});
 };
 
-export const onClose = (id, characters, setCharacters) => {
+export const onClose = (id, characters, setCharacters, dispatch) => {
   // eslint-disable-next-line array-callback-return
   const AuxCharacters = characters.filter((character) => {
-    if (character.id !== Number(id)) return character;
+    if (character.id !== Number(id)) {
+      return character;
+    }
   });
 
   setCharacters(AuxCharacters);
 };
 
-export const login = (userData,setAccess,navigate) => {
+export const login = (userData, setAccess, navigate) => {
   const EMAIL = "jose20@gmail.es";
   const PASSWORD = "pass12";
   if (userData.email === EMAIL && userData.password === PASSWORD) {

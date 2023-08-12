@@ -17,7 +17,7 @@
   position: absolute;
 }
 
-.containerCard button {
+.containerCard .cerrar {
   font-size: 1em;
   border: none;
   border-radius: 2px 6px;
@@ -27,18 +27,28 @@
   transition: color 1s;
 }
 
-.containerCard button:hover {
+.containerCard .favorite{
+  border: none;
+  background-color: unset;
+  font-size: 24px;
+  padding: 5px 0 0 5px;
+  width: 0px;
+  height: 0px;
+  cursor: pointer;
+  transition: font-size .5s;
+}
+
+.containerCard .favorite:hover{
+  font-size: 26px;
+}
+
+.containerCard .cerrar:hover {
   color: #ff8c45;
   background-color: #a14b0b;
   cursor: pointer;
 }
 
 .containerCard .name {
-  /* left: 0;
-  bottom: -17px;
-  background-color: #ff9445;
-  padding: 2px 5px 0 10px;
-  border-radius: 0 6px 0 6px; */
 
   left: 6px;
   bottom: -25px;
@@ -46,19 +56,3 @@
   padding: 2px 5px 0 10px;
   border-radius: 0 6px 0 6px;
 }
-
-/* .containerCard:hover .gender {
-  right: 0;
-  visibility: visible;
-  bottom: -11px;
-  background-color: #28d9ed;
-  padding: 0 10px 0 10%;
-  border-radius: 0 0 6px 0;
-}
-
-.containerCard.gender:hover{
-  right: 0;
-  visibility: visible;
-  bottom: -11px;
-  background-color: #28d9ed;
-} */

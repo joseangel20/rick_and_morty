@@ -35,6 +35,10 @@ export default function SearchBar(props) {
       <Link to="/about">
         <button className={styles.about}>About</button>
       </Link>
+
+      <Link to="/favorites">
+        <button className="">Favorites</button>
+      </Link>
       <input
         className={disable}
         type="search"
