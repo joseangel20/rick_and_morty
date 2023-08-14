@@ -9,13 +9,14 @@ export default function Card({
   id,
   name,
   image,
+  gender,
   characters,
   setCharacters,
-  fav,
+  fav
 }) {
-  const [isFav, setIsFav] = useState(false);
+  const allCharacters = useSelector((state) => state.allCharacters);
   const dispatch = useDispatch();
-  const myFavorites = useSelector((state) => state.myFavorites);
+  const [isFav, setIsFav] = useState(false);
 
   const handleFavorite = () => {
     if (isFav) {
@@ -23,9 +24,8 @@ export default function Card({
       dispatch(removeFav(id));
       return;
     }
-
     setIsFav(true);
-    dispatch(addFav({ id, name, image }));
+    dispatch(addFav({ id, name, image, gender }));
   };
 
   useEffect(() => {
@@ -34,12 +34,12 @@ export default function Card({
     //       setIsFav(true);
     //     }
     //   });
-    for (let fav of myFavorites) {
+    for (let fav of allCharacters) {
       if (fav.id === id) {
         setIsFav(true);
       }
     }
-  }, [id, myFavorites]);
+  }, [id, allCharacters]);
 
   const nameClick = <h4 className={styles.name}>{name.split(" ")[0]}</h4>;
 
@@ -52,7 +52,7 @@ export default function Card({
         className={styles.cerrar}
         onClick={() => {
           if (fav) {
-            onClose(id, dispatch, removeFav, setIsFav);
+            onClose(id, removeFav, setIsFav);
           } else {
             onClose(id, characters, setCharacters);
             dispatch(removeFav(id));

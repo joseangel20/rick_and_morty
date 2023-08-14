@@ -22,10 +22,13 @@ const showCard = (char, props) => {
 export default function Cards(props) {
   
   return (
+    <>
+    <div className={styles.select}></div>
     <div className={styles.containerCards}>
       {props.characters.map((char) => {
         return showCard(char, props);
       })}
     </div>
+      </>
   );
 }

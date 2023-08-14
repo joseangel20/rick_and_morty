@@ -32,12 +32,12 @@ export default function SearchBar(props) {
       <NavLink to="/home">
         <button className={styles.home}>Home</button>
       </NavLink>
-      <Link to="/about">
-        <button className={styles.about}>About</button>
-      </Link>
-
+      
       <Link to="/favorites">
         <button className="">Favorites</button>
+      </Link>
+      <Link to="/about">
+        <button className={styles.about}>About</button>
       </Link>
       <input
         className={disable}

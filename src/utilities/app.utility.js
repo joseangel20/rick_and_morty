@@ -33,7 +33,7 @@ const axio = (setCharacters, id) => {
     .catch(({ response }) => {});
 };
 
-export const onClose = (id, characters, setCharacters, dispatch) => {
+export const onClose = (id, characters, setCharacters) => {
   // eslint-disable-next-line array-callback-return
   const AuxCharacters = characters.filter((character) => {
     if (character.id !== Number(id)) {
