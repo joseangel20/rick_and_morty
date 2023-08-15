@@ -4,23 +4,26 @@ import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import * as component from "./vista/view";
 import { onSearch, onSearchRandom, onClose } from "./utilities/app.utility";
 import "./App.css";
+import { logOutAction } from "./redux/actions";
+import { useDispatch } from "react-redux";
 
 function App() {
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
   const { pathname } = useLocation();
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
+ 
   const logOut = () => {
     setAccess(false);
     navigate("/");
+    setCharacters([]);
+    dispatch(logOutAction());
   };
 
   const login = (userData) => {
-    // const EMAIL = "jose20@gmail.es";
-    // const PASSWORD = "pass12";
-    const EMAIL = "";
-    const PASSWORD = "";
+    const EMAIL = "jose20@gmail.es";
+    const PASSWORD = "pass12";
 
     if (userData.email === EMAIL && userData.password === PASSWORD) {
       setAccess(true);

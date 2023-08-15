@@ -14,7 +14,7 @@ export default function Card({
   setCharacters,
   fav
 }) {
-  const allCharacters = useSelector((state) => state.allCharacters);
+  const myFavorites = useSelector((state) => state.myFavorites);
   const dispatch = useDispatch();
   const [isFav, setIsFav] = useState(false);
 
@@ -34,12 +34,12 @@ export default function Card({
     //       setIsFav(true);
     //     }
     //   });
-    for (let fav of allCharacters) {
+    for (let fav of myFavorites) {
       if (fav.id === id) {
         setIsFav(true);
       }
     }
-  }, [id, allCharacters]);
+  }, [id, myFavorites]);
 
   const nameClick = <h4 className={styles.name}>{name.split(" ")[0]}</h4>;
 

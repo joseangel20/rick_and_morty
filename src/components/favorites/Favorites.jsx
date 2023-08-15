@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Card from "../card/Card";
 import styles from "../cards/Cards.module.css";
 import { filterCards, orderCards } from "../../redux/actions";
-import { useEffect } from "react";
+import { useState } from "react";
 
 const showCard = (char, onClose) => {
   return (
@@ -19,9 +19,13 @@ const showCard = (char, onClose) => {
   );
 };
 
+const optionOrders = ["Ascendente", "Descendente"];
+const optionGenders = ["Male", "Female", "Genderless", "unknown"];
+
 const Favorites = () => {
   const myFavorites = useSelector((state) => state.myFavorites);
 
+  const [order, setOrder] = useState("");
   const dispatch = useDispatch();
 
   const onClose = (id, removeFav, setIsFav) => {
@@ -30,6 +34,7 @@ const Favorites = () => {
   };
 
   const handleOrder = (e) => {
+    setOrder(e.target.value);
     dispatch(orderCards(e.target.value));
   };
 
@@ -37,26 +42,24 @@ const Favorites = () => {
     dispatch(filterCards(e.target.value));
   };
 
-  useEffect(() => {
-    dispatch(orderCards("A"));
-  }, [dispatch]);
-
   return (
     <>
       <div className={styles.select}>
-        <select name="order" onChange={handleOrder}>
-          <option value="A">Ascendente</option>
-          <option value="D">Descendente</option>
+        <select name="order" value={order} onChange={handleOrder}>
+          <option value="">Seleccione un orden: </option>
+          {optionOrders.map((order) => {
+            return <option key={order}>{order}</option>;
+          })}
         </select>
 
         <select name="gender" onChange={handleFilter}>
           <option value="All">All</option>
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-          <option value="Genderless">Genderless</option>
-          <option value="unknown">unknown</option>
+          {optionGenders.map((gender) => {
+            return <option key={gender}>{gender}</option>;
+          })}
         </select>
       </div>
+
       <div className={styles.containerCards}>
         {myFavorites.map((char) => {
           return showCard(char, onClose);
