@@ -1,11 +1,11 @@
 /* eslint-disable array-callback-return */
 import { useEffect, useState } from "react";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
-import * as component from "./vista/view";
 import { onSearch, onSearchRandom, onClose } from "./utilities/app.utility";
-import "./App.css";
 import { logOutAction } from "./redux/actions";
 import { useDispatch } from "react-redux";
+import * as component from "./vista/view";
+import "./App.css";
 
 function App() {
   const [characters, setCharacters] = useState([]);

@@ -39,9 +39,7 @@ const Detail = () => {
   ];
 
   const navigate = useNavigate();
-  // useEffect(() => {
-  //   // axio(setCharacters, 1);
-  // }, []);
+
   const handleNavigate = () => {
     navigate("/Error");
   };
