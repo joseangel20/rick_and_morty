@@ -22,15 +22,21 @@ export const onSearchRandom = (characters, setCharacters) => {
 };
 
 const axio = (setCharacters, id) => {
-  axios(`https://rickandmortyapi.com/api/character/${id}`)
+  // axios(`https://rickandmortyapi.com/api/character/${id}`)
+
+  axios(`http://localhost:3001/rickandmorty/character/${id}`)
     .then(({ data }) => {
       if (data.name) {
         setCharacters((oldChars) => [...oldChars, data]);
-      } else {
-        window.alert("¡No hay personajes con este ID!");
       }
     })
-    .catch(({ response }) => {});
+    .catch(({ response }) => {
+      let protocolo = 410;
+      if (response.status === protocolo || response.status === 404) {
+        console.clear();
+        window.alert("¡No hay personajes con este ID!");
+      }
+    });
 };
 
 export const onClose = (id, characters, setCharacters) => {

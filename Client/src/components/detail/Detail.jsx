@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
-import { useEffect, useState} from "react";
-import { useParams, useNavigate} from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import "./detail.css";
 import loading from "../../assets/img/loading.gif";
 
@@ -10,19 +10,18 @@ const Detail = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    axios(`https://rickandmortyapi.com/api/character/${id}`)
+    axios(`http://localhost:3001/rickandmorty/character/${id}`)
       .then(({ data }) => {
         if (data.name) {
           setCharacter(data);
-        } else {
-          alert("¡No hay personajes con este ID!");
         }
       })
       .catch(({ response }) => {
-        if (response.status === 404) handleNavigate();
+        if (response.status === 404 && response.status === 410)
+          handleNavigate();
       });
 
-    return setCharacter({});
+    return () => setCharacter({});
   }, [id]);
 
   const description = [
