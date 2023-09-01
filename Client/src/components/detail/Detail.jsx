@@ -17,7 +17,7 @@ const Detail = () => {
         }
       })
       .catch(({ response }) => {
-        if (response.status === 404 && response.status === 410)
+        if (response?.status === 404 && response.status === 410)
           handleNavigate();
       });
 
@@ -27,10 +27,10 @@ const Detail = () => {
   const description = [
     <div key={"0"} className="detail">
       <h1>{character.name}</h1>
-      <h3>STATUS | {character.status}</h3>
+       <h3>STATUS | {character.status}</h3>
       <h3>GENDER | {character.gender}</h3>
       <h3>SPECIE | {character.species}</h3>
-      <h3>ORIGIN | {character.origin?.name}</h3>
+      <h3>ORIGIN | {character.origin}</h3> 
     </div>,
     <div key={"1"} className="contentImage">
       <img src={character.image} alt={character.name} width={350} />

@@ -10,7 +10,7 @@ const showCard = (char, props) => {
       status={char.status}
       species={char.species}
       gender={char.gender}
-      origin={char.origin.name}
+      origin={char.origin?.name}
       image={char.image}
       onClose={props.onClose}
       characters={props.characters}
@@ -20,15 +20,14 @@ const showCard = (char, props) => {
 };
 
 export default function Cards(props) {
-  
   return (
     <>
-    <div className={styles.select}></div>
-    <div className={styles.containerCards}>
-      {props.characters.map((char) => {
-        return showCard(char, props);
-      })}
-    </div>
-      </>
+      <div className={styles.select}></div>
+      <div className={styles.containerCards}>
+        {props.characters.map((char) => {
+          return showCard(char, props);
+        })}
+      </div>
+    </>
   );
 }
