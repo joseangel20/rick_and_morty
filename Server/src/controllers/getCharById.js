@@ -16,7 +16,7 @@ function getCharById(req, res) {
         status,
         name,
         species,
-        origin,
+        origin:origin.name,
         image,
         gender,
       };
