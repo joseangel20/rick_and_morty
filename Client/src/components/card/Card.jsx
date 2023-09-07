@@ -25,7 +25,7 @@ export default function Card({
       return;
     }
     setIsFav(true);
-    dispatch(addFav({ id, name, image, gender }));
+   dispatch(addFav({ id, name, image, gender }));
   };
 
   useEffect(() => {

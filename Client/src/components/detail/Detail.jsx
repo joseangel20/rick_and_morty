@@ -30,7 +30,7 @@ const Detail = () => {
        <h3>STATUS | {character.status}</h3>
       <h3>GENDER | {character.gender}</h3>
       <h3>SPECIE | {character.species}</h3>
-      <h3>ORIGIN | {character.origin}</h3> 
+      <h3>ORIGIN | {character.origin}</h3>
     </div>,
     <div key={"1"} className="contentImage">
       <img src={character.image} alt={character.name} width={350} />

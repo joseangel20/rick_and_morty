@@ -1,6 +1,6 @@
 /* eslint-disable array-callback-return */
 
-import { ADD_FAV, FILTER, ORDER, REMOVE_FAV, LOGOUT} from "./actions";
+import { ADD_FAV, FILTER, ORDER, REMOVE_FAV, LOGOUT } from "./actions";
 
 const initialState = {
   myFavorites: [],
@@ -12,21 +12,15 @@ const favoriteReducer = (state = initialState, action) => {
     case ADD_FAV:
       return {
         ...state,
-        allCharacters: [...state.allCharacters, action.payload],
-        myFavorites: [...state.allCharacters, action.payload],
+        myFavorites: action.payload,
+        allCharacters: action.payload,
       };
     case REMOVE_FAV:
-      let newState = state.allCharacters.filter((myFavorite) => {
-        if (myFavorite.id !== action.payload) {
-          return myFavorite;
-        }
-      });
       return {
         ...state,
-        allCharacters: newState,
-        myFavorites: newState,
+        myFavorites: action.payload,
+        allCharacters: action.payload,
       };
-
     case FILTER:
       let filterMyFavorites = state.allCharacters.filter((character) => {
         if (action.payload === "All") return character;
@@ -50,10 +44,10 @@ const favoriteReducer = (state = initialState, action) => {
       };
 
     case LOGOUT:
-      return{
+      return {
         ...state,
-        ...initialState
-      }
+        ...initialState,
+      };
     default:
       return { ...state };
   }

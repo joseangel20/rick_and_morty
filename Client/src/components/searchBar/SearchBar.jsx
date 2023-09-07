@@ -50,6 +50,7 @@ export default function SearchBar(props) {
         className={[styles.boton_sobre_input, disable].join(" ")}
         onClick={() => {
           props.onSearch(id, props.characters, props.setCharacters);
+          setId("0")
           clearInput(input);
         }}
       >

@@ -6,7 +6,7 @@ import { logOutAction } from "./redux/actions";
 import { useDispatch } from "react-redux";
 import * as component from "./vista/view";
 import "./App.css";
-
+import axios from "axios";
 function App() {
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
@@ -21,22 +21,18 @@ function App() {
     dispatch(logOutAction());
   };
 
-  const login = (userData) => {
-    const EMAIL = "jose20@gmail.es";
-    const PASSWORD = "pass12";
+  function login(userData) {
+    const { email, password } = userData;
+    const URL = 'http://localhost:3001/rickandmorty/login/';
+    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+       const { access } = data;
+       setAccess(data);
+       access && navigate('/home');
 
-    if (userData.email === EMAIL && userData.password === PASSWORD) {
-      setAccess(true);
-      navigate("/home");
-      return;
-    } else {
-      setAccess(false);
-      alert("El email o la contraseña es o son incorrecto/s");
-    }
-
-    return access;
-  };
-
+       !access && alert("Usuario o password incorrecto")
+    });
+ }
+  
   useEffect(() => {
     !access && navigate("/");
   }, [access, navigate]);
