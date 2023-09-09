@@ -12,7 +12,7 @@ export default function Card({
   gender,
   characters,
   setCharacters,
-  fav
+  fav,
 }) {
   const myFavorites = useSelector((state) => state.myFavorites);
   const dispatch = useDispatch();
@@ -25,15 +25,12 @@ export default function Card({
       return;
     }
     setIsFav(true);
-   dispatch(addFav({ id, name, image, gender }));
+    addFav({ id, name, image, gender }).then((data) => {
+      dispatch(data);
+    });
   };
-
   useEffect(() => {
-    //   myFavorites.forEach((fav)=>{
-    //     if(fav.id === id){
-    //       setIsFav(true);
-    //     }
-    //   });
+ 
     for (let fav of myFavorites) {
       if (fav.id === id) {
         setIsFav(true);

@@ -7,13 +7,14 @@ import { useDispatch } from "react-redux";
 import * as component from "./vista/view";
 import "./App.css";
 import axios from "axios";
+
 function App() {
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
- 
+
   const logOut = () => {
     setAccess(false);
     navigate("/");
@@ -21,18 +22,26 @@ function App() {
     dispatch(logOutAction());
   };
 
-  function login(userData) {
+  async function login(userData) {
     const { email, password } = userData;
-    const URL = 'http://localhost:3001/rickandmorty/login/';
-    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
-       const { access } = data;
-       setAccess(data);
-       access && navigate('/home');
+    const URL = "http://localhost:3001/rickandmorty/login/";
 
-       !access && alert("Usuario o password incorrecto")
-    });
- }
-  
+    try {
+      const { data } = await axios(
+        URL + `?email=${email}&password=${password}`
+      );
+
+      const { access } = data;
+      setAccess(data);
+      access && navigate("/home");
+
+      !access && alert("Usuario o password incorrecto");
+    } catch (response) {
+      console.clear();
+      console.log(response.message);
+    }
+  }
+
   useEffect(() => {
     !access && navigate("/");
   }, [access, navigate]);

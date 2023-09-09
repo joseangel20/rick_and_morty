@@ -6,16 +6,19 @@ export const ORDER = "ORDER";
 export const LOGOUT = "LOGOUT";
 
 // ACTION | addFav
-export const addFav = (character) => {
+export const addFav = async (character) => {
   const endpoint = "http://localhost:3001/rickandmorty/fav";
-  return (dispatch) => {
-    axios.post(endpoint, character).then(({ data }) => {
+  try {
+    const { data } = await axios.post(endpoint, character);
+    return (dispatch) => {
       return dispatch({
         type: ADD_FAV,
         payload: data,
       });
-    });
-  };
+    };
+  } catch (response) {
+    console.log(response.message);
+  }
 };
 
 // ACTION | removeFav
