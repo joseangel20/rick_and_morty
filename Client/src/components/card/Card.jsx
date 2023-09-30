@@ -8,15 +8,19 @@ export default function Card({
   onClose,
   id,
   name,
+  origin,
+  status,
   image,
+  species,
   gender,
   characters,
   setCharacters,
-  fav,
+  fav
 }) {
   const myFavorites = useSelector((state) => state.myFavorites);
   const dispatch = useDispatch();
   const [isFav, setIsFav] = useState(false);
+  const token = useSelector((state) => state.token);
 
   const handleFavorite = () => {
     if (isFav) {
@@ -25,8 +29,8 @@ export default function Card({
       return;
     }
     setIsFav(true);
-    addFav({ id, name, image, gender }).then((data) => {
-      dispatch(data);
+    addFav({ id, name, origin, status, image, species, gender}, token).then((data) => {
+      dispatch(data)
     });
   };
   useEffect(() => {
@@ -36,9 +40,11 @@ export default function Card({
         setIsFav(true);
       }
     }
+
   }, [id, myFavorites]);
 
-  const nameClick = <h4 className={styles.name}>{name.split(" ")[0]}</h4>;
+  //Nombre se muestra en la tarjeta
+  const FirstName = <h4 className={styles.name}>{name.split(" ")[0]}</h4>;
 
   return (
     <div className={styles.containerCard}>
@@ -67,7 +73,8 @@ export default function Card({
           };
         }}
       >
-        {nameClick}
+        {FirstName}
+        
       </NavLink>
       <img src={image} alt={name} />
     </div>

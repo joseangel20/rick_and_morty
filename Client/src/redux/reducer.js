@@ -1,14 +1,34 @@
 /* eslint-disable array-callback-return */
 
-import { ADD_FAV, FILTER, ORDER, REMOVE_FAV, LOGOUT } from "./actions";
+import {
+  ADD_FAV,
+  FILTER,
+  ORDER,
+  REMOVE_FAV,
+  LOGOUT,
+  GETFAVORITES,
+  LOGIN,
+} from "./actions";
 
 const initialState = {
   myFavorites: [],
   allCharacters: [],
+  token: "",
 };
 
 const favoriteReducer = (state = initialState, action) => {
   switch (action.type) {
+    case LOGIN:
+      return {
+        ...state,
+        token: action.payload,
+      };
+    case GETFAVORITES:
+      return {
+        ...state,
+        myFavorites: action.payload,
+        allCharacters: action.payload,
+      };
     case ADD_FAV:
       return {
         ...state,

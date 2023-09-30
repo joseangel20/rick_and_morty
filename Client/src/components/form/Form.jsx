@@ -2,6 +2,7 @@ import { useState } from "react";
 import { handleChange } from "../../utilities/validation";
 import styles from "./form.module.css";
 import loginImg from "../../assets/img/login.jpg";
+import { useDispatch } from "react-redux";
 
 export default function Form({ login }) {
   const [userData, setUserData] = useState({
@@ -9,10 +10,11 @@ export default function Form({ login }) {
     password: "",
   });
   const [errors, setErrors] = useState({});
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!login(userData))
+    if (!login(userData, dispatch))
       setUserData({
         ...userData,
         password: "",

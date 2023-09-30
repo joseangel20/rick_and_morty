@@ -1,9 +1,10 @@
 /* eslint-disable array-callback-return */
+import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import Card from "../card/Card";
 import styles from "../cards/Cards.module.css";
-import { filterCards, orderCards } from "../../redux/actions";
-import { useState } from "react";
+import { filterCards, orderCards, getFavorites } from "../../redux/actions";
+import { useEffect, useState } from "react";
 
 const showCard = (char, onClose) => {
   return (
@@ -24,7 +25,6 @@ const optionGenders = ["Male", "Female", "Genderless", "unknown"];
 
 const Favorites = () => {
   const myFavorites = useSelector((state) => state.myFavorites);
-
   const [order, setOrder] = useState("");
   const dispatch = useDispatch();
 
@@ -41,6 +41,14 @@ const Favorites = () => {
   const handleFilter = (e) => {
     dispatch(filterCards(e.target.value));
   };
+
+  useEffect(() => {
+
+      axios("/fav").then(({ data }) => {
+        dispatch(getFavorites(data));
+      });
+    
+  }, [dispatch]);
 
   return (
     <>
